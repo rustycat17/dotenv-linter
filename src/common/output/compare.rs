@@ -17,6 +17,13 @@ impl CompareOutput {
         }
     }
 
+    /// Prints warning about missing input files
+    pub fn print_warning_missing_file(&self) {
+        if !self.is_quiet_mode {
+            println!("Nothing to compare");
+        }
+    }
+
     /// Prints warnings without any additional information
     pub fn print_warnings(&self, warnings: &[CompareWarning]) {
         warnings.iter().for_each(|w| println!("{}", w))

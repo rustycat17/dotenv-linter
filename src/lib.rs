@@ -102,9 +102,12 @@ pub fn compare(
     let mut warnings: Vec<CompareWarning> = Vec::new();
     let mut files_to_compare: Vec<CompareFileType> = Vec::new();
 
+    println!("{:?} {:?} {:?}", args, current_dir, lines_map);
+
     // Nothing to check
     if lines_map.is_empty() {
-        return Ok(warnings);
+        // return Ok(warnings);
+        output.print_warning_missing_file();
     }
 
     // Create CompareFileType structures for each file
